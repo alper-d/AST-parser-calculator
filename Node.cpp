@@ -20,10 +20,10 @@ Node::Node(char c){
 	Node* right = nullptr;
 	char value = c ;
 }
-Node::Node(const Node &nodeToCopy){
-    left = nodeToCopy.left;
-    right = nodeToCopy.right;
-    value = nodeToCopy.value;
+Node::Node(const Node* nodeToCopy){
+    left = nodeToCopy->left;
+    right = nodeToCopy->right;
+    value = nodeToCopy->value;
 }
 Node::~Node(){
 

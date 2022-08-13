@@ -27,7 +27,7 @@ class Parser{
 	private:
 		std::stack<char> operand_stack;
 		std::stack<char> operator_stack;
-		std::stack<Node> tree_stack;
+		std::stack<Node*> tree_stack;
 
 };
 

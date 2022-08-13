@@ -13,7 +13,7 @@ class Node {
 public:
 	Node(char value);
 	Node();
-	Node(const Node &nodeToCopy);
+	Node(const Node* nodeToCopy);
 	~Node();
 	Node *left;
 	Node *right;

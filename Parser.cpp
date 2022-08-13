@@ -13,6 +13,7 @@
 
 
 Parser::Parser(){
+	std::cout<< "Parser constructor";
 	std::stack<char> operand_stack;
 	std::stack<char> operator_stack;
 	std::stack<Node*> tree_stack;
@@ -56,7 +57,7 @@ void Parser::assembleTree(){
 		}
 
 		operand_stack.push('#');
-		tree_stack.push(*n);
+		tree_stack.push(n);
 	}
 }
 
@@ -86,7 +87,7 @@ void Parser::evaluateParanthesis(){
 			n->left->value = temp;
 		}
 		operand_stack.push('#');
-		tree_stack.push(*n);
+		tree_stack.push(n);
 	}
 	operator_stack.top();
 	operator_stack.pop();
@@ -126,7 +127,7 @@ Node* Parser::parse(std::string &s ){
 						n->left->value = temp;
 					}
 					operand_stack.push('#');
-					tree_stack.push(*n);
+					tree_stack.push(n);
 				}
 			} else if (Parser::checkBinaryOperator(*it) || *it == '('){
 				operator_stack.push(*it);
@@ -172,7 +173,7 @@ Node* Parser::parse(std::string &s ){
 						n->left->value = temp;
 					}
 					operand_stack.push('#');
-					tree_stack.push(*n);
+					tree_stack.push(n);
 				}
 			}
 		}
@@ -181,7 +182,7 @@ Node* Parser::parse(std::string &s ){
         }
 		//buraya
 		this->assembleTree();
-		return &(tree_stack.top());
+		return tree_stack.top();
 
 	}
 void Parser::printTree(Node *n){
